@@ -59,4 +59,7 @@ if executable('ag')
 endif
 
 cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>f :Ack!<Space>
+
+" ctrlsf (find in project replacement)
+nnoremap <Leader>fip :CtrlSF
