@@ -1,4 +1,25 @@
-execute pathogen#infect('bundle/{}', '/usr/local/opt/fzf')
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" " alternatively, pass a path where Vundle should install plugins
+
+" " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-commentary'
+Plugin 'junegunn/fzf.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'benmills/vimux'
+Plugin 'tpope/vim-dispatch'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 syntax on
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab number
@@ -8,21 +29,9 @@ let mapleader=","
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeWinSize = 50
-let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeAutoDeleteBuffer = 0
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
 
 nnoremap <leader>n :NERDTree<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
@@ -32,15 +41,9 @@ let g:ctrlp_by_filename = 0
 " " ctrlp - show dot files
 let g:ctrlp_show_hidden = 1
 
-" " Fuzzy search / recently used files
-nnoremap dk :CtrlP<CR>
-nnoremap do :CtrlPMRU<CR>
-nnoremap du :CtrlPBufTag<CR>
 
 " fzf
-" nnoremap <leader>f :FZF<CR>
-
-
+nnoremap <leader>f :FZF<CR>
 
 " splits
 set splitbelow
@@ -59,7 +62,9 @@ if executable('ag')
 endif
 
 cnoreabbrev Ack Ack!
-nnoremap <Leader>f :Ack!<Space>
 
 " ctrlsf (find in project replacement)
 nnoremap <Leader>fip :CtrlSF
+
+" run tests command
+nnoremap <Leader>rtp :!nosetests %
