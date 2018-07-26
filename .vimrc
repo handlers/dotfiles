@@ -3,6 +3,10 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" I install FZF using git, so have to add this
+set rtp+=~/.fzf
+
 call vundle#begin()
 " " alternatively, pass a path where Vundle should install plugins
 
