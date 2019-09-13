@@ -13,3 +13,13 @@
   added = yellow
   changed = green
   untracked = cyan
+[user]
+	email = samhandler@fastmail.com
+	name = Sam Handler
+[alias]
+  co = checkout
+  st = status
+  cob = checkout branch
+  p = push
+  c = commit
+  dc = diff --cached
