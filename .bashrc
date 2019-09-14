@@ -123,7 +123,7 @@ fi
 set -o vi
 
 export PATH=$PATH:~/mi
-alias reload="source ~/.bash_profile"
+alias reload="source ~/.bashrc"
 for file in .customization/* ; do
   if [ -f "$file" ] ; then
     . "$file"
@@ -137,3 +137,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash_aliases
 
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
